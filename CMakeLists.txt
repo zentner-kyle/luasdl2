@@ -93,7 +93,12 @@ include_directories(${Lua-SDL2_BINARY_DIR})
 
 find_package(SDL2 REQUIRED)
 
-if (WITH_LUAVER MATCHES "52")
+if (WITH_LUAVER MATCHES "53")
+	find_package(Lua53 REQUIRED)
+	set(LUA_LIBRARIES ${LUA53_LIBRARIES})
+	set(LUA_INCLUDES ${LUA53_INCLUDE_DIR})
+	set(LUA_LIBDIR "lib/lua/5.3" CACHE STRING "Lua C Module Install Path")
+elseif (WITH_LUAVER MATCHES "52")
 	find_package(Lua52 REQUIRED)
 	set(LUA_LIBRARIES ${LUA52_LIBRARIES})
 	set(LUA_INCLUDES ${LUA52_INCLUDE_DIR})

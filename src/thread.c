@@ -315,6 +315,9 @@ loadfunction(lua_State *owner, lua_State *thread, int index)
 	/* Copy the function at the top of the stack */
 	lua_pushvalue(owner, index);
 
+#if LUA_VERSION_NUM == 503
+  #define lua_dump(o, w, s) (lua_dump((o), (w), (s), 0))
+#endif
 	if (lua_dump(owner, (lua_Writer)writer, &state) != LUA_OK) {
 		ret = commonPush(owner, "ns", "failed to dump function");
 		goto cleanup;
