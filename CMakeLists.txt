@@ -29,7 +29,7 @@ set(VERSION "${MAJOR}.${MINOR}.${PATCH}-${BINDING}")
 set(CMAKE_MODULE_PATH "${Lua-SDL2_SOURCE_DIR}/cmake")
 
 # Path where to install docs
-set(WITH_DOCSDIR "share/docs/Lua-SDL2"
+set(WITH_DOCSDIR "share/docs/Lua-${WITH_LUAVER}-SDL2"
     CACHE STRING "Path to install examples")
 # Lua version: JIT, 51 and 52, default: 5.2
 set(WITH_LUAVER "52"
